@@ -10,9 +10,14 @@ body {
   font-family: 'Poppins', sans-serif !important;
 }
 
+.row {
+  min-height: 100vh;
+}
+
 .cal-container {
   background-color: var(--dark3-color);
   padding: unset;
+  min-height: 530px;
 }
 
 .top {
