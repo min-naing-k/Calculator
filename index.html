@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator Project</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./fontawesomepro/css/all.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div
+          class="col-md-3 mx-auto mt-5 rounded-3 cal-container"
+          style="width: 320px; min-width: 320px; height: 500px"
+        >
+          <div class="top">
+            <div class="text-wrapper">
+              <p class="upper-text" id="upper-text"></p>
+              <p class="down-text" id="down-text"></p>
+            </div>
+          </div>
+          <div class="bottom grid">
+            <div class="number-cell bg-c color-w">
+              <button class="clear" type="button" value="c">C</button>
+            </div>
+            <div class="number-cell bg-c">
+              <button class="sign" type="button" value="/">
+                <i class="fal fa-divide"></i>
+              </button>
+            </div>
+            <div class="number-cell bg-c">
+              <button class="sign" type="button" value="*">
+                <i class="fal fa-times"></i>
+              </button>
+            </div>
+            <div class="number-cell bg-c">
+              <button class="delete" type="button" value="del">
+                <i class="fal fa-backspace"></i>
+              </button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value="7">7</button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value="8">8</button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value="9">9</button>
+            </div>
+            <div class="number-cell bg-c">
+              <button class="sign" type="button" value="-">
+                <i class="fal fa-minus"></i>
+              </button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value="4">4</button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value="5">5</button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value="6">6</button>
+            </div>
+            <div class="number-cell bg-c">
+              <button class="sign" type="button" value="+">
+                <i class="fal fa-plus"></i>
+              </button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value="1">1</button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value="2">2</button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value="3">3</button>
+            </div>
+            <div class="number-cell row-2 bg-orange">
+              <button class="equal" type="button" value="=">
+                <i class="fal fa-equals"></i>
+              </button>
+            </div>
+            <div class="number-cell">
+              <button class="sign" type="button" value="%">
+                <i class="far fa-percentage"></i>
+              </button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value="0">0</button>
+            </div>
+            <div class="number-cell">
+              <button class="number" type="button" value=".">.</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./final_app.js"></script>
+  </body>
+</html>
