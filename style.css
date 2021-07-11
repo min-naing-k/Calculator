@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
 :root {
   --orange-color: #ffbb00;
   --dark-color: #363746;
   --dark2-color: #2e2f3e;
   --dark3-color: #242530;
+}
+
+body {
+  font-family: 'Poppins', sans-serif !important;
 }
 
 .cal-container {
