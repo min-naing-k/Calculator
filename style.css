@@ -47,12 +47,14 @@ body {
 .text-wrapper .upper-text {
   color: #808080;
   word-wrap: break-word;
+  min-height: 48px;
 }
 
 .text-wrapper .down-text {
   font-size: 1.5rem;
   word-wrap: break-word;
   word-break: break-all;
+  min-height: 36px;
 }
 
 .grid {
