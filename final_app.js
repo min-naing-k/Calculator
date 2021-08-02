@@ -3,13 +3,6 @@ class Calculator {
    previousOperand = "";
    operation = undefined;
 
-   // for equalBtn
-   prev = "";
-   current = "";
-   sign = "";
-   equalSign = "";
-   clickEqual = false;
-
    constructor(upperText, downText) {
       this.upperText = upperText;
       this.downText = downText;
@@ -23,17 +16,20 @@ class Calculator {
    appendNumber(number) {
       if (number === "." && this.currentOperand.includes(".")) return;
       // when user click the .(dot), and then we add 0 in front of it
-      if (number === "." && this.currentOperand === "") {
+      if (number === "." && this.currentOperand.charAt(0) === "") {
          this.currentOperand = "0";
+      }
+      if (number === "0" && this.currentOperand === "") {
+         return;
       }
       this.currentOperand = this.currentOperand.toString() + number.toString();
    }
    // 11,000
    getDisplayNumber(number) {
-      // 1000
-      const stringNum = number.toString(); // 1000 string
-      const integerDigits = parseFloat(stringNum.split(".")[0]); // 1000 number
-      const decimalDigits = stringNum.split(".")[1]; // "" string
+      // 0.3
+      const stringNum = number.toString();
+      const integerDigits = parseFloat(stringNum.split(".")[0]); // 0
+      const decimalDigits = stringNum.split(".")[1]; // 3
       let integerDisplay;
       if (isNaN(integerDigits)) {
          integerDisplay = this.previousOperand;
@@ -53,7 +49,12 @@ class Calculator {
    chooseOperation(operation) {
       // 5 + 5
       if (this.currentOperand === "") {
-         this.operation = operation; // +
+         this.operation = operation;
+         if (this.getDisplayNumber(this.previousOperand) === "") {
+            this.previousOperand = "0";
+         } else {
+            this.previousOperand = this.getDisplayNumber(this.previousOperand);
+         }
          // this.previousOperand = '0';
          return;
       }
@@ -63,8 +64,6 @@ class Calculator {
       this.operation = operation;
       this.previousOperand = this.currentOperand;
       this.currentOperand = "";
-      console.log("previous" + this.previousOperand);
-      console.log("current" + this.currentOperand);
    }
    compute() {
       // we need ====> prev + current = result (downText)
@@ -91,27 +90,22 @@ class Calculator {
          default:
             break;
       }
-      this.prev = prev;
-      this.current = current;
-      this.sign = this.operation;
-      this.equalSign = "=";
 
-      this.currentOperand = result; // 0
-      this.previousOperand = ""; // ''
+      this.currentOperand = result;
+      this.previousOperand = "";
       this.operation = undefined;
-      console.log("currentOperand" + this.currentOperand);
-      console.log("previousOperand" + this.previousOperand);
    }
    delete() {
       this.currentOperand = this.currentOperand.toString().slice(0, -1);
    }
-   updateDisplay(equalBtn = null) {
+   updateDisplay() {
       // 5 * 2 = 10 from compute
       // currentOperand = 10 previousOperand = '' operation = undefined
       this.downText.innerText =
          this.getDisplayNumber(this.currentOperand) === ""
             ? "0"
             : this.getDisplayNumber(this.currentOperand);
+      // this.downText.innerText = this.getDisplayNumber(this.currentOperand);
       // when user click the operation button
       if (this.operation != null) {
          this.upperText.innerText = `
@@ -123,14 +117,6 @@ class Calculator {
       `;
       } else {
          this.upperText.innerText = "";
-      }
-      if (equalBtn != null) {
-         if (this.currentOperand !== "") {
-            if (this.prev) {
-               this.upperText.innerText = `${this.prev}${this.sign}${this.current}${this.equalSign}`;
-               this.prev = "";
-            }
-         }
       }
    }
 }
@@ -160,8 +146,8 @@ operatorBtns.forEach((operatorBtn) => {
 });
 
 equalBtn.addEventListener("click", (e) => {
-   calculator.compute();
-   calculator.updateDisplay(equalBtn.value);
+   calculator.compute(equalBtn.value);
+   calculator.updateDisplay();
 });
 
 clearBtn.addEventListener("click", (e) => {

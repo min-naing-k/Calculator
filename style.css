@@ -124,3 +124,21 @@ body {
 i {
    user-select: none;
 }
+
+.text {
+   margin: -1.4rem auto 0;
+   text-align: center;
+   font-size: 0.875rem;
+   max-width: 350px;
+   color: #808080;
+   pointer-events: none;
+}
+
+.text span {
+   display: block;
+   color: blue;
+   font-size: 1.5rem;
+   margin-top: 0.5rem;
+   font-weight: lighter;
+   letter-spacing: 2px;
+}
